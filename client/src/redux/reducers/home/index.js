@@ -1,4 +1,4 @@
-import { TEAM_FECTH_INFO } from './../../actions/team/types'
+import { TEAM_FECTH_INFO } from './../../actions/home/types'
 
 
 const INITIAL_STATE = {

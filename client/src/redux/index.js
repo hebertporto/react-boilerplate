@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
-import TeamReducer from './reducers/team/'
+import HomeReducer from './reducers/home/'
 
 const rootReducer = combineReducers({
-  team: TeamReducer,
+  home: HomeReducer,
 })
 
 export default rootReducer

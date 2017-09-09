@@ -1,8 +1,11 @@
-const env = process.env.NODE_ENV
+const isProd = process.env.NODE_ENV === 'production'
 const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const boostrapEntryPoints = require('./webpack.bootstrap.config')
+
+const bootstrapConfig = isProd ? boostrapEntryPoints.prod : boostrapEntryPoints.dev
 
 const VENDOR_LIBS = [
   'react', 'react-dom', 'redux', 'react-redux', 'prop-types', 'redux-thunk',
@@ -12,6 +15,7 @@ const VENDOR_LIBS = [
 module.exports = {
   entry: {
     bundle: './client/src/index.jsx',
+    bootstrap: bootstrapConfig,
     vendor: VENDOR_LIBS,
   },
   output: {
@@ -41,13 +45,21 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: env === 'production'
-          ? ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: ['css-loader', 'less-loader'],
-            publicPath: 'client/dist',
-          })
+        use: isProd ? ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'less-loader'],
+          publicPath: 'client/dist',
+        })
           : ['style-loader', 'css-loader', 'less-loader'],
+      },
+      {
+        test: /\.scss$/,
+        use: isProd ? ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'scss-loader'],
+          publicPath: 'client/dist',
+        })
+          : ['style-loader', 'css-loader', 'scss-loader'],
       },
       {
         test: /\.(jpeg|jpg|png|gif|svg)$/,
@@ -62,6 +74,9 @@ module.exports = {
           'image-webpack-loader',
         ],
       },
+      { test: /\.(woff2?|svg)$/, use: 'url-loader?limit=10000' },
+      { test: /\.(ttf|eot)$/, use: 'file-loader' },
+      { test: /bootstrap-sass[/\\]assets[/\\]javascripts[/\\]/, use: 'imports-loader?jQuery=jquery' },
     ],
   },
   plugins: [

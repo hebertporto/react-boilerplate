@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { fetchInfo } from './../../../redux/actions/team/actions'
+import { fetchInfo } from './../../../redux/actions/home/actions'
 
 
-class Team extends Component {
+class Home extends Component {
   componentDidMount() {
     this.props.fetchInfo()
   }
@@ -12,7 +12,7 @@ class Team extends Component {
   render() {
     return (
       <div>
-        <h1> Team Component </h1>
+        <h1> Home Component </h1>
         <h2>{this.props.info}</h2>
       </div>
     )
@@ -21,7 +21,7 @@ class Team extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    info: state.team.info,
+    info: state.home.info,
   }
 }
 
@@ -31,4 +31,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Team)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
