@@ -8,7 +8,9 @@ import Router from './Router'
 const App = () => (
   <div>
     <Header />
-    <Router />
+    <div className="container">
+      <Router />
+    </div>
   </div>
 )
 

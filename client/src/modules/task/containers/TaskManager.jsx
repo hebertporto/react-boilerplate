@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { fetchInfo } from './../../../redux/actions/home/actions'
+import { fetchInfo } from './../../../redux/actions/task/actions'
 
 
-class Home extends Component {
+class TaskManager extends Component {
   componentDidMount() {
     this.props.fetchInfo()
   }
 
   render() {
     return (
-      <div className="row">
-        <div className="col-md-12">
-          <h1> Home Component </h1>
-          <h2>{this.props.info}</h2>
-        </div>
+      <div>
+        <h1> Task Manager Component </h1>
+        <h2>{this.props.info}</h2>
       </div>
     )
   }
@@ -23,7 +21,7 @@ class Home extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    info: state.home.info,
+    info: state.task.info,
   }
 }
 
@@ -33,4 +31,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(TaskManager)

@@ -1,7 +1,7 @@
 import { TEAM_FECTH_INFO } from './types'
 
 export function fetchInfo() {
-  const info = 'hello by redux Action Home'
+  const info = 'hello by redux Action Task'
   return (dispatch) => {
     dispatch({ type: TEAM_FECTH_INFO, payload: info })
   }
