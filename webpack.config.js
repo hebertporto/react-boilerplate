@@ -20,7 +20,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, './client/dist'),
-    filename: '[name].[hash].js',
+    filename: 'js/[name].[hash].js',
   },
   module: {
     rules: [
@@ -74,8 +74,28 @@ module.exports = {
           'image-webpack-loader',
         ],
       },
-      { test: /\.(woff2?|svg)$/, use: 'url-loader?limit=10000' },
-      { test: /\.(ttf|eot)$/, use: 'file-loader' },
+      { test: /\.(woff2?|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: 'assets/fonts/[name].[hash].[ext]',
+            },
+          },
+        ],
+      },
+      { test: /\.(ttf|eot)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              limit: 10000,
+              name: 'assets/fonts/[name].[hash].[ext]',
+            },
+          },
+        ],
+      },
       { test: /bootstrap-sass[/\\]assets[/\\]javascripts[/\\]/, use: 'imports-loader?jQuery=jquery' },
     ],
   },
@@ -90,7 +110,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     }),
     new ExtractTextPlugin({
-      filename: '[name].[hash].css',
+      filename: 'css/[name].[hash].css',
       disable: false,
       allChunks: true,
     }),
