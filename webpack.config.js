@@ -4,10 +4,9 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const extractLESS = new ExtractTextPlugin('[name].[hash].css')
-
 const VENDOR_LIBS = [
   'react', 'react-dom', 'redux', 'react-redux', 'prop-types', 'redux-thunk',
+  'react-router-dom', 'react-router-redux',
 ]
 
 module.exports = {
@@ -42,7 +41,13 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: env === 'production' ? extractLESS.extract(['css-loader', 'less-loader']) : ['style-loader', 'css-loader', 'less-loader'],
+        use: env === 'production'
+          ? ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: ['css-loader', 'less-loader'],
+            publicPath: 'client/dist',
+          })
+          : ['style-loader', 'css-loader', 'less-loader'],
       },
       {
         test: /\.(jpeg|jpg|png|gif|svg)$/,
@@ -69,7 +74,11 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     }),
-    extractLESS,
+    new ExtractTextPlugin({
+      filename: '[name].[hash].css',
+      disable: false,
+      allChunks: true,
+    }),
   ],
   resolve: {
     modules: ['node_modules'],
