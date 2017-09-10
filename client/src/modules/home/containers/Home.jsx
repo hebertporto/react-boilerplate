@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Col } from 'react-bootstrap'
 
 import { fetchInfo } from './../../../redux/actions/home/actions'
 
@@ -12,10 +13,10 @@ class Home extends Component {
   render() {
     return (
       <div className="row">
-        <div className="col-md-12">
+        <Col xs={12} md={2}>
           <h1> Home Component </h1>
           <h2>{this.props.info}</h2>
-        </div>
+        </Col>
       </div>
     )
   }

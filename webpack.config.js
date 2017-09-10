@@ -9,7 +9,7 @@ const bootstrapConfig = isProd ? boostrapEntryPoints.prod : boostrapEntryPoints.
 
 const VENDOR_LIBS = [
   'react', 'react-dom', 'redux', 'react-redux', 'prop-types', 'redux-thunk',
-  'react-router-dom', 'react-router-redux',
+  'react-router-dom', 'react-router-redux', 'react-bootstrap', 'redux-form',
 ]
 
 module.exports = {
@@ -29,7 +29,7 @@ module.exports = {
         enforce: 'pre',
         exclude: [
           path.resolve(__dirname, 'node_modules'),
-          path.resolve(__dirname, './client/dist'),
+          path.resolve(__dirname, 'client/dist'),
         ],
         loader: 'eslint-loader',
       },
