@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Col } from 'react-bootstrap'
+import { Col, Jumbotron, Row, Grid } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 import { fetchInfo } from './../../../redux/actions/home/actions'
 
@@ -12,12 +13,18 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="row">
-        <Col xs={12} md={2}>
-          <h1> Home Component </h1>
-          <h2>{this.props.info}</h2>
+      <Row>
+        <Col xs={12} md={12}>
+          <Jumbotron>
+            <h1>Hello, world!</h1>
+            <p>
+              This is a simple hero unit, a simple jumbotron-style component for
+              calling extra attention to featured content or information.
+            </p>
+            <p><Link className="btn btn-primary btn-lg" to="/taskForm">Task Form</Link></p>
+          </Jumbotron>
         </Col>
-      </div>
+      </Row>
     )
   }
 }

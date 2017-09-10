@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { Col, Row } from 'react-bootstrap'
 
 import { fetchInfo } from './../../../redux/actions/task/actions'
 
@@ -10,11 +12,26 @@ class TaskManager extends Component {
   }
 
   render() {
+    const { tasks } = this.props
     return (
-      <div>
-        <h1> Task Manager Component </h1>
-        <h2>{this.props.info}</h2>
-      </div>
+      <Row>
+        <Col md={12}>
+          <h1> Task Manager Comp </h1>
+        </Col>
+        <Col md={6}>
+          <p> Bloco de texto 1 bla bla bla</p>
+        </Col>
+        <Col md={6}>
+          <ul>
+            {tasks.map(item => (
+              <li>{item.desc}</li>
+            ))}
+          </ul>
+        </Col>
+        <Col md={12}>
+          <Link className="btn btn-default btn-lg" to="/taskForm">Task Form</Link>
+        </Col>
+      </Row>
     )
   }
 }
@@ -22,6 +39,7 @@ class TaskManager extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     info: state.task.info,
+    tasks: state.task.taskList,
   }
 }
 
