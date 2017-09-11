@@ -4,7 +4,7 @@ import * as reducers from './reducers'
 const INITIAL_STATE = {
   info: 'vazio',
   taskList: [
-    { desc: 'tarefa deafult' },
+    { desc: 'tarefa deafult', data: '10/20' },
   ],
 }
 

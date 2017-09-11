@@ -23,8 +23,8 @@ class TaskManager extends Component {
         </Col>
         <Col md={6}>
           <ul>
-            {tasks.map(item => (
-              <li>{item.desc}</li>
+            {tasks.map((item, index) => (
+              <li key={item.desc}>{item.desc} - {item.data}</li>
             ))}
           </ul>
         </Col>
