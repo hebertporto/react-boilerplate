@@ -16,6 +16,7 @@ export function setInfo() {
 }
 
 export function createTask(values) {
+  console.log('values', values)
   return (dispatch) => {
     dispatch({ type: TASK_CREATE, payload: values })
   }

@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf ./client/dist",
     "build": "yarn run clean && cross-env NODE_ENV=production webpack -p",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --history-api-fallback --progress --colors --inline --hot",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --history-api-fallback --progress --colors --inline --hot"
   },
   "author": "",
   "license": "ISC",

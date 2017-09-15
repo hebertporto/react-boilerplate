@@ -8,8 +8,10 @@ import {
   Button,
   Col,
   Form,
+  Row,
 } from 'react-bootstrap'
 import { reduxForm, Field } from 'redux-form'
+import { Redirect } from 'react-router-dom'
 
 class FormTask extends Component {
   constructor(props) {
@@ -25,6 +27,7 @@ class FormTask extends Component {
 
   render() {
     const { handleSubmit } = this.props
+
     const FieldInput = ({ input, meta, placeholder, ...props }) => {
       return (
         <FormControl
@@ -36,24 +39,31 @@ class FormTask extends Component {
       )
     }
     return (
-      <Form onSubmit={handleSubmit}>
-        <FormGroup
-          controlId="formBasicText"
-        >
-          <ControlLabel>Working example with aadsa</ControlLabel>
+      <Row>
+        <Form onSubmit={handleSubmit}>
           <Col md={6}>
-            <Field name="desc" placeholder="Descrição" component={FieldInput} />
+            <FormGroup controlId="formBasicText" >
+              <ControlLabel>Working example with aadsa</ControlLabel>
+              <Field
+                name="desc"
+                placeholder="Descrição"
+                component={FieldInput}
+              />
+            </FormGroup>
           </Col>
-          <Col md={6}>
-            <Field name="data" placeholder="Data" component={FieldInput} />
+          <Col md={12}>
+            <Button type="submit">
+              Submit
+            </Button>
           </Col>
-        </FormGroup>
-        <Button type="submit">
-          Submit
-        </Button>
-      </Form>
+        </Form>
+      </Row>
     )
   }
 }
 
-export default reduxForm({ form: 'taskForm' })(FormTask)
+export default reduxForm({ form: 'taskForm',
+  onSubmitSuccess: () => {
+    return () => (<Redirect to="/" />)
+  },
+})(FormTask)
