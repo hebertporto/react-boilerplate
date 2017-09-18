@@ -2,15 +2,13 @@ import React from 'react'
 
 import './shared/style/site.less'
 
-import Header from './shared/components/Header'
+import Header from './shared/components/layout/Header'
 import Router from './Router'
 
 const App = () => (
-  <div>
+  <div className="container-fluid">
     <Header />
-    <div className="container">
-      <Router />
-    </div>
+    <Router />
   </div>
 )
 

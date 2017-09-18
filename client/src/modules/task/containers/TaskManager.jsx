@@ -3,8 +3,11 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Col, Row } from 'react-bootstrap'
 
+import ProjectManager from './../components/ProjectManager'
+
 import { fetchInfo } from './../../../redux/actions/task/actions'
 
+import './../style/task.less'
 
 class TaskManager extends Component {
   componentDidMount() {
@@ -15,21 +18,19 @@ class TaskManager extends Component {
     const { tasks } = this.props
     return (
       <Row>
-        <Col md={12}>
-          <h1> Task Manager Comp </h1>
-        </Col>
-        <Col md={6}>
-          <p> Bloco de texto 1 bla bla bla</p>
-        </Col>
-        <Col md={6}>
-          <ul>
-            {tasks.map((item, index) => (
-              <li key={item.desc}>{item.desc} - {item.data}</li>
-            ))}
-          </ul>
-        </Col>
-        <Col md={12}>
-          <Link className="btn btn-default btn-lg" to="/taskForm">Task Form</Link>
+        <Col md={12} className="task-manager-container">
+          <div className="task-box-cliente">
+            <p>Cliente</p>
+          </div>
+          <div className="task-box-projeto">
+            <p>Projetos</p>
+          </div>
+          <div className="task-box-todo">
+            <p>TODO</p>
+          </div>
+          <div className="task-box-done">
+            <p>DONE</p>
+          </div>
         </Col>
       </Row>
     )

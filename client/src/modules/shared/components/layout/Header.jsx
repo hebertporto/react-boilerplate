@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Header = () => (
   <header>
     <nav className="navbar navbar-default navbar-fixed-top">
-      <div className="container">
+      <div className="container-fluid">
         <div className="navbar-header">
           <button
             type="button"
