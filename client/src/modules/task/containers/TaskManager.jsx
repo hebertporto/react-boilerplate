@@ -21,6 +21,10 @@ class TaskManager extends Component {
         <Col md={12} className="task-manager-container">
           <div className="task-box-cliente">
             <p>Cliente</p>
+            <div id="header"><Link to="/"> CLIQUE 1</Link></div>
+            <div id="header" className="override"><Link to="/"> CLIQUE 2</Link></div>
+            <div className="override"><Link to="/"> CLIQUE 3</Link></div>
+            <div><Link to="/"> CLIQUE 4 </Link></div>
           </div>
           <div className="task-box-projeto">
             <p>Projetos</p>
