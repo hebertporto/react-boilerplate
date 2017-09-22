@@ -43,10 +43,10 @@ class FormTask extends Component {
         <Form onSubmit={handleSubmit}>
           <Col md={6}>
             <FormGroup controlId="formBasicText" >
-              <ControlLabel>Working example with aadsa</ControlLabel>
+              <ControlLabel>Add New Client</ControlLabel>
               <Field
-                name="desc"
-                placeholder="Descrição"
+                name="client"
+                placeholder="Nome do Cliente"
                 component={FieldInput}
               />
             </FormGroup>
