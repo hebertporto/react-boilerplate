@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import { Col, Row } from 'react-bootstrap'
 
 import ProjectManager from './../components/ProjectManager'
+import ClientManager from './../components/ClientManager'
+import DoneManager from './../components/DoneManager'
+import TodoManager from './../components/TodoManager'
 
 import { fetchInfo } from './../../../redux/actions/task/actions'
 
@@ -20,20 +23,16 @@ class TaskManager extends Component {
       <Row>
         <Col md={12} className="task-manager-container">
           <div className="task-box-cliente">
-            <p>Cliente</p>
-            <div id="header"><Link to="/"> CLIQUE 1</Link></div>
-            <div id="header" className="override"><Link to="/"> CLIQUE 2</Link></div>
-            <div className="override"><Link to="/"> CLIQUE 3</Link></div>
-            <div><Link to="/"> CLIQUE 4 </Link></div>
+            <ClientManager />
           </div>
           <div className="task-box-projeto">
-            <p>Projetos</p>
+            <ProjectManager />
           </div>
           <div className="task-box-todo">
-            <p>TODO</p>
+            <TodoManager />
           </div>
           <div className="task-box-done">
-            <p>DONE</p>
+            <DoneManager />
           </div>
         </Col>
       </Row>

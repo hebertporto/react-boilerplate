@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-class ProjectManager extends Component {
+class ClientManager extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -11,11 +11,10 @@ class ProjectManager extends Component {
   render() {
     return (
       <div className="task-component-projeto">
-        <p>Projet Manager</p>
+        <p>Cliente Manager</p>
       </div>
     )
   }
 }
 
-export default connect(null, null)(ProjectManager)
-
+export default connect(null, null)(ClientManager)
