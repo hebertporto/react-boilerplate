@@ -35,15 +35,15 @@ class ClientManager extends Component {
       <div className="task-component-projeto">
         <Row>
           <Col md={6}>
-              <FormGroup controlId="formBasicText" >
-                <ControlLabel>Add New Client</ControlLabel>
-                <Field
-                  name="client"
-                  placeholder="Nome do Cliente"
-                  component={FieldInput}
-                />
-              </FormGroup>
-            </Col>
+            <FormGroup controlId="formBasicText" >
+              <ControlLabel>Add New Client</ControlLabel>
+              <Field
+                name="client"
+                placeholder="Nome do Cliente"
+                component={FieldInput}
+              />
+            </FormGroup>
+          </Col>
         </Row>
       </div>
     )
