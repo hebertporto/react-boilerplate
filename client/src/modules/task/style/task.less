@@ -1,11 +1,17 @@
 .task-manager-container {
   display: flex;
-  flex
+  flex-wrap: wrap;
 }
 
 .task-box-basic {
   flex-grow: 1;
+  flex:1;
   padding: 5px;
+  min-width: 250px;
+  min-height: 80px;
+  @media (max-width: 530px){
+    margin-bottom: 5px;
+  }
 }
 .task-box-cliente {
   background-color: yellow;
@@ -13,7 +19,7 @@
 }
 
 .task-box-projeto {
-  background-color: red;
+  background-color: tomato;
   .task-box-basic();
 }
 
